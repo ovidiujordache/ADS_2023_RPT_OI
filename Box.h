@@ -4,15 +4,21 @@
 using namespace std;
 
 
+/*
 
+To test template <class T> taking User defined Objects
+not only promitives
+
+*/
 class Box {
 private:
-	int width, length;
+	int width, length,height;
+	
 public:
-	Box() :width(0), length(0) {
+	Box() :width(0), length(0),height(0) {
 
 	}
-	Box(int w, int l) :width(w), length(l) {
+	Box(int w, int l,int h) :width(w), length(l) ,height(h){
 
 	}
 	void setWidth(int w) {

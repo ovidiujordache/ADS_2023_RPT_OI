@@ -4,14 +4,16 @@
 #include "Circle.h";
 
 
-using namespace std;int main() {
+	using namespace std;
+
+int main() {
 	cout << "running main" << endl;
 
     OrderedArray<int> *oAI = new OrderedArray<int>(2);//address
 	OrderedArray<float>* oAF = new OrderedArray<float>(2);//address
 	OrderedArray<Box>* oAB = new OrderedArray<Box>(6);//address
-	Box* b = new Box(3,5);
-	Box* b1 = new Box(36, 5);
+	Box* b = new Box(3,5,3);
+	Box* b1 = new Box(36, 5,5);
 	
 	//dereferencing
 	
