@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.25"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "ADT_2023_RPT_OI",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ADT_2023_RPT_OI::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ADT_2023_RPT_OI-Debug-6665103a6a7d0c333b2c.json",
+					"name" : "ADT_2023_RPT_OI",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/ovi_j/OneDrive - Dundalk Institute of Technology/DKIT_YEAR_3/Repeats_2023/Algorithms_And_Data_Structres/ADT_2023_RPT_OI/cmake-build-debug",
+		"source" : "C:/Users/ovi_j/OneDrive - Dundalk Institute of Technology/DKIT_YEAR_3/Repeats_2023/Algorithms_And_Data_Structres/ADT_2023_RPT_OI"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
