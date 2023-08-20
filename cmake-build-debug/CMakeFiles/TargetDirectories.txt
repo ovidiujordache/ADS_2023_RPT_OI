@@ -1,3 +1,3 @@
-C:/Users/ovi_j/OneDrive - Dundalk Institute of Technology/DKIT_YEAR_3/Repeats_2023/Algorithms_And_Data_Structres/ADT_2023_RPT_OI/cmake-build-debug/CMakeFiles/ADT_2023_RPT_OI.dir
-C:/Users/ovi_j/OneDrive - Dundalk Institute of Technology/DKIT_YEAR_3/Repeats_2023/Algorithms_And_Data_Structres/ADT_2023_RPT_OI/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/ovi_j/OneDrive - Dundalk Institute of Technology/DKIT_YEAR_3/Repeats_2023/Algorithms_And_Data_Structres/ADT_2023_RPT_OI/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/media/ovi/Development_WX/ADT_CA/ADS_2023_RPT_OI/cmake-build-debug/CMakeFiles/ADT_2023_RPT_OI.dir
+/media/ovi/Development_WX/ADT_CA/ADS_2023_RPT_OI/cmake-build-debug/CMakeFiles/edit_cache.dir
+/media/ovi/Development_WX/ADT_CA/ADS_2023_RPT_OI/cmake-build-debug/CMakeFiles/rebuild_cache.dir

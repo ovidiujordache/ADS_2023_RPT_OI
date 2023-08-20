@@ -2,10 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "ADT_2023_RPT_OI.exe"
-		},
-		{
-			"path" : "ADT_2023_RPT_OI.pdb"
+			"path" : "ADT_2023_RPT_OI"
 		}
 	],
 	"backtrace" : 1,
@@ -55,7 +52,7 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "C:/Users/ovi_j/OneDrive - Dundalk Institute of Technology/DKIT_YEAR_3/Repeats_2023/Algorithms_And_Data_Structres/ADT_2023_RPT_OI/."
+					"path" : "/media/ovi/Development_WX/ADT_CA/ADS_2023_RPT_OI/."
 				}
 			],
 			"language" : "CXX",
@@ -85,16 +82,12 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
-			},
-			{
-				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
-				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "ADT_2023_RPT_OI",
-	"nameOnDisk" : "ADT_2023_RPT_OI.exe",
+	"nameOnDisk" : "ADT_2023_RPT_OI",
 	"paths" : 
 	{
 		"build" : ".",
