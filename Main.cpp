@@ -2,7 +2,7 @@
 #include "OrderedArray.h";
 #include "Box.h";
 #include "Circle.h";
-
+#include "ReadCSV.h";
 
 	using namespace std;
 
@@ -33,5 +33,10 @@ int main() {
 	c1->setRadius(*pRad);
 	int getR=c1 ->getRadius();
 	printf("%d", getR);
+	
+	ReadCSV* rF = new ReadCSV();
+		
+	rF->readCSV();
+
 
 }
