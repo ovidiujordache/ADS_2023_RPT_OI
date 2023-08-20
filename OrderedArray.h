@@ -58,23 +58,9 @@ public:
 	}
 
 
-Item<T>* findNode(Item<T>* what, const T& data)
-	{
-		if (what == nullptr)
-			return nullptr;
-		//if Data is same
-		if (what->getData() == data)
-			return what;
-		//continue running untill found.
-		else
-			findNode(what->getNext(), data);
-	}
 
-	/// <summary>
-	/// Adds data to the end of the SList
-	/// </summary>
-	/// <typeparam name="T">Data of type T</typeparam>
-	///
+
+
 	void increaseIndex() {
 		this->index++;
 		
@@ -116,16 +102,7 @@ Item<T>* findNode(Item<T>* what, const T& data)
 	
 		
 		
-			//if we didnt have address of last node we could iterate across list and find the last
-			/*
-			Item<T>* pCurrent = pHead;
-			while (pCurrent->getNext() != nullptr)
-			{
-				pCurrent = pCurrent->getNext();
-			}
-			pCurrent->setNext(pNew);
-			pTail = pNew;
-			*/
+	
 		}
 		
 	}
@@ -200,19 +177,6 @@ Item<T>* findNode(Item<T>* what, const T& data)
 
 	}
 
-	void print(Item<T>* pCurrent) {
-		//1. recursion - when to stop
-		if (pCurrent == nullptr) {
-			return;
-		}
-		//2. recursion - when to continue - print and call
-		else
-		{
-			//print node data
-			std::cout << "pCurrent->getData()" << std::endl;
-			//call the same function (recursion) again to print the next node data
-			print(pCurrent->getNext());
-		}
-	}
+
 };
 

@@ -29,14 +29,14 @@ int main() {
 	oAB->push(*b3);
 	oAB->push(*b4);
 	oAB->push(*b5);
-	cout<<oAB->length()<<endl;
-	cout << oAB->getSize() << endl;
+	
+	
 	
 	cout<<"ending here" << endl;
 	
 
 
-	ReadCSV* rF = new ReadCSV();
+	//ReadCSV* rF = new ReadCSV();
 		
 //	rF->readCSV();
 
