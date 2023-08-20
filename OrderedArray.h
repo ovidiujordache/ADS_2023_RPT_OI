@@ -6,6 +6,7 @@ template <typename T>
 class OrderedArray
 {
 
+private :
 	/*
 
 	Item vars :Data 
@@ -21,10 +22,6 @@ class OrderedArray
 	//keeping track.
 	int index;
 
-	void initialize()
-	{
-	
-	}
 public:
 	Item<T>* getHead() {
 		return this->pHead;
