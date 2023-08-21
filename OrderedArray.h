@@ -18,7 +18,11 @@ private :
 	*/
 	Item<T>* pHead;
 	Item<T>* pTail;
+
+
 	int size=2;
+
+
 	//keeping track.
 	int index;
 
@@ -79,7 +83,7 @@ public:
 	void push(const T& data)	
 	{	
 		Item<T>* pNew = new  Item<T>(data);
-
+	
 		//list is empty
 		if (this->isEmpty())
 		{
@@ -96,17 +100,20 @@ public:
 		//list is not empty
 		else if(this->index==this->size)
 		{
-	
+		
+
 			cout<<"array full .Request increase size" << endl;
 			//throw std::out_of_range;
 		}
 		else {
-			//get last node and tag on the new node
+		
+			
+		
 			pTail->setNext(pNew);
-			cout << pTail->getNext() << endl;
+			//cout << pTail->getNext() << endl;
 
 			pTail = pNew;
-			cout << pTail << endl;
+			//cout << pTail << endl;
 			pTail->setIndex(this->index);
 			increaseIndex();
 	
@@ -119,6 +126,7 @@ public:
 	int length() {
 		return this->index;
 	}
+
 	void remove(int removeAtIndex)
 	{
 		//if no objects 
@@ -153,6 +161,11 @@ public:
 			}
 		}
 		
+	}
+	void iterate() {
+		for (int i = 0; i < index; i++) {
+			//cout<<*(bytesize[i]->getData())<<endl;
+		}
 	}
 	T getElement(int elIndex) {
 		Item<T>* returningItem = pHead;
