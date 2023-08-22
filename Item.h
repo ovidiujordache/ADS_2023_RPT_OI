@@ -22,17 +22,24 @@ public:
 	T getData() const {
 		return this->data;
 	}
+	void setData(T data)
+	{
+		this->data = data;
+	}
 
 	void setNext(Item<T>* pNext) {
 		this->pNext = pNext;
 	}
 
-	Item* getNext() const { return this->pNext; }
+	Item* getNext() const {
+		return this->pNext; }
 	void setIndex(int i) {
 		this->index = i;
 	}
 	int getIndex() {
-		return this->index;
+	
+			return this->index;
+	
 	}
 
 };

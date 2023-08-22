@@ -41,7 +41,7 @@ public:
 	//equlity for values not for Ref
 
 
-	int operator<=(const Box& box)const {
+	int operator<(const Box& box)const {
 		if (this->volume < box.volume)
 		{
 			return -1;

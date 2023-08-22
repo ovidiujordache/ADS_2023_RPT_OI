@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="Box.h" />
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="MySet.h" />
     <ClInclude Include="OrderedArrayAlloc.h" />
     <ClInclude Include="ReadCSV.h" />
     <ClInclude Include="OrderedArray.h" />
