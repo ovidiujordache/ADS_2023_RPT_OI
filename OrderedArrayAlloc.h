@@ -1,8 +1,12 @@
 #pragma once
 #include <iostream>
+#include <string>
+
 #include "Item.h"
+
 using namespace std;
 template <typename T>
+
 class OrderedArrayAlloc
 {
 
@@ -10,7 +14,7 @@ private:
 
 
 
-	int size = 2;
+	int size = 200;
 	T* bytesizeData = (T*)calloc(sizeof(T), sizeof(size));
 
 	int index;
@@ -101,6 +105,24 @@ public:
 		}
 
 	}
+	void sort() {
+	
+
+
+		for (int i = 0; i < index - 1; i++)
+		{
+
+			int min_idx = i;
+			for (int j = i + 1; j < index; j++)
+				if (bytesizeData[j] <= bytesizeData[min_idx])
+					min_idx = j;
+
+			T temp = bytesizeData[min_idx];
+			bytesizeData[min_idx] = bytesizeData[i];
+			bytesizeData[i] = temp;
+			cout <<  temp  << endl;
+		}
+	}
 	int length() {
 		return this->index;
 	}
@@ -118,11 +140,7 @@ public:
 		}
 
 	}
-	void iterate() {
-		for (int i = 0; i < index; i++) {
-			//cout<<*(bytesize[i]->getData())<<endl;
-		}
-	}
+
 	T getElement(int elIndex) {
 
 
@@ -143,14 +161,14 @@ public:
 		};
 	}
 
-	int  search(T data) {
+	void   search(T data) {
 		for (int i = 0; i < index; i++) {
 			if(bytesizeData[i]=data) {
-				return i;
+				return true;
 			}
 
 			};
-		return 0;//not found
+		return false;//not found
 	
 
 	}

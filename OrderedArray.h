@@ -20,7 +20,7 @@ private :
 	Item<T>* pTail;
 
 
-	int size=2;
+	int size=200;
 
 
 	//keeping track.
