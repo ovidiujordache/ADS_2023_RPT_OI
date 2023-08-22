@@ -10,7 +10,9 @@
 #include <iostream>
 #include "Item.h"
 using namespace std;
+#include <boost/optional.hpp>
 template <typename T>
+
 class MySet
 {
 
@@ -58,6 +60,11 @@ public:
         }
 
     }
+
+    T& operator&(T) {
+
+    }
+
 bool contains(T data){
     if (this->isEmpty() | ( this->getHead() == nullptr)) {
         return 0;

@@ -9,6 +9,8 @@
 #pragma once
 #include <iostream>
 #include "Item.h"
+
+
 using namespace std;
 template <typename T>
 class OrderedArray
@@ -208,7 +210,7 @@ public:
 
     }
     int length() {
-        return this->index;
+        return this->pTail->getIndex();
     }
    T search(T data) {
         if (this->isEmpty() | (this->getHead() == nullptr)) {
@@ -286,7 +288,7 @@ public:
 
 
     T getElement(int elIndex) {
-        if (this->isEmpty()) {
+        if (this->isEmpty() ) {
             return NULL;
         }
         else {
@@ -298,6 +300,8 @@ public:
 
                 int indexAtHead = this->getHead()->getIndex();
                 if (indexAtHead == elIndex) {
+                   
+                    
                     return this->getHead()->getData();
 
                 }
@@ -313,7 +317,8 @@ public:
                 start++;
             }
         }
-        return 0;
+
+
     }
 
 

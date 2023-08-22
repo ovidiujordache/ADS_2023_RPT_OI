@@ -7,35 +7,35 @@
 using namespace std;
 template <typename T>
 
-class OrderedArrayAlloc
+class MySetAlloc
 {
 
 private:
 
 
 
-	int capacity = 200;
-	T* bytesizeData = (T*)calloc(sizeof(T), sizeof(capacity));
+	int size = 200;
+	T* bytesizeData = (T*)calloc(sizeof(T), sizeof(size));
 
 	int index;
 
 public:
 	T getData() {
-		return this->bytesizeData;
+		return this->bytes;
 	}
 
-	OrderedArrayAlloc()
+	MySetAlloc()
 	{
-	
+
 
 		index = 0;
 	};
-	OrderedArrayAlloc(int growSize)
+	MySetAlloc(int growSize)
 	{
 		/*easy way to do it is just */
 
-		capacity += growSize;
-		bytesizeData = (T*)calloc(sizeof(T), sizeof(capacity));
+		size += growSize;
+		bytesizeData = (T*)calloc(sizeof(T), sizeof(size));
 		index = 0;
 		/*trivial . im sure its about copying elements of
 		old Array into new Array.
@@ -43,7 +43,7 @@ public:
 
 		*/
 	};
-	~OrderedArrayAlloc()
+	~MySetAlloc()
 	{
 		//deleting all objects on memory stack
 		//if only one Object pHead doesnt have pNext reference
@@ -56,12 +56,10 @@ public:
 	{
 		return (bytesizeData[0]);
 	}
-	int getSize() {
-		return this->index;
-	}
-	int getCapacity()
+
+	int getSize()
 	{
-		return this->capacity;
+		return this->size;
 	}
 
 
@@ -81,14 +79,14 @@ public:
 		//list is empty
 		if (this->isEmpty())
 		{
-			cout << newData << endl;
+
 
 			bytesizeData[index] = data;
 			increaseIndex();
 
 		}
 		//list is not empty
-		else if (this->index == this->capacity)
+		else if (this->index == this->size)
 		{
 
 
@@ -98,8 +96,8 @@ public:
 		else {
 			bytesizeData[index] = data;
 
-	
-			this->increaseIndex();
+
+			increaseIndex();
 
 
 
@@ -108,7 +106,7 @@ public:
 
 	}
 	void sort() {
-	
+
 
 
 		for (int i = 0; i < index - 1; i++)
@@ -122,7 +120,7 @@ public:
 			T temp = bytesizeData[min_idx];
 			bytesizeData[min_idx] = bytesizeData[i];
 			bytesizeData[i] = temp;
-			cout <<  temp  << endl;
+			cout << temp << endl;
 		}
 	}
 	int length() {
@@ -151,30 +149,27 @@ public:
 
 			return 0;
 		}
-		//this returns where pointer is.
-	
 		return bytesizeData[elIndex];
-		
 
 
 	}
 
 	void clear() {
 
-		for (int i = 0; i < index;i++) {
-			bytesizeData[i]=nullptr;//calling destructor
+		for (int i = 0; i < index; i++) {
+			bytesizeData[i] = nullptr;//calling destructor
 		};
 	}
 
 	void   search(T data) {
 		for (int i = 0; i < index; i++) {
-			if(bytesizeData[i]=data) {
+			if (bytesizeData[i] = data) {
 				return true;
 			}
 
-			};
+		};
 		return false;//not found
-	
+
 
 	}
 
