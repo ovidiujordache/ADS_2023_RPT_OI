@@ -63,8 +63,8 @@ int main() {
 	bool test2 = mySet->add(2123234223);
 	//cout << test2 << endl;;
 	 
-	int val=mySet->searchElement(2323232323211111);
-	cout << val << endl;
+
+
 	
 	OrderedArrayAlloc<int>* oI = new OrderedArrayAlloc<int>(5);
 	int* a =new int (245);
@@ -78,6 +78,10 @@ int main() {
 	oI->push(*c);
 	oI->push(*d);
 	oI->push(*e);
+	bool t=mySet->contains(245);
+	mySet->remove(0);
+
+	cout << t << endl;
 
 	/*
 

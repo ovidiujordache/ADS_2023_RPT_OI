@@ -52,8 +52,11 @@ public:
 		else return 1;
 	}
 
-
-
+	 string to_string()
+	{
+		 int vol = this->volume;
+		 return  std::to_string(vol);
+	}
 
 	void printBox(Box& b) {
 		cout << b.getLength() << endl;

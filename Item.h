@@ -20,7 +20,9 @@ public:
 
 	}
 	T getData() const {
-		return this->data;
+	
+			return this->data;
+	
 	}
 	void setData(T data)
 	{

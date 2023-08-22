@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/media/ovi/Development_WX/ADT_CA/ADS_2023_RPT_OI/.
+CXX_INCLUDES = -I/media/ovi/Development_WX/ADS_2023_REPEAT_OI/ADS_2023_RPT_OI/.
 
 CXX_FLAGS = -g -fdiagnostics-color=always -std=gnu++14
 

@@ -1,3 +1,11 @@
+//
+// Created by ovi on 22/08/23.
+//
+
+#ifndef SEARCHDARNELEM_MYSET_H
+#define SEARCHDARNELEM_MYSET_H
+
+#endif //SEARCHDARNELEM_MYSET_H
 #pragma once
 #include <iostream>
 #include "Item.h"
@@ -7,275 +15,315 @@ class MySet
 {
 
 private:
-	/*
+    /*
 
-	Item vars :Data
-	Item*->pNext is where action is. Holds a pointer to address in memory.
+    Item vars :Data
+    Item*->pNext is where action is. Holds a pointer to address in memory.
 
-	Hence all objects seem strung together as in an array.
-	Methods : setNext, getNext,setData, getData.
-	pTail ->next will point to itself.d
-	*/
-	Item<T>* pHead;
-	Item<T>* pTail;
-
-
-	int size = 200;
+    Hence all objects seem strung together as in an array.
+    Methods : setNext, getNext,setData, getData.
+    pTail ->next will point to itself.d
+    */
+    Item<T>* pHead;
+    Item<T>* pTail;
 
 
-	//keeping track.
-	int index;
+    int size = 200;
+
+
+    //keeping track.
+    int index;
 
 public:
-	Item<T>* getHead() {
-		return this->pHead;
-	}
 
-	MySet()
-	{
-		pHead = pTail = nullptr;
-
-		index = 0;
-	};
-	MySet(int growSize)
-	{
-		/*easy way to do it is just */
-		pHead = pTail = nullptr;
-		size += growSize;
-
-		index = 0;
-		/*trivial . im sure its about copying elements of
-		old Array into new Array.
-		Can' t see it doing that in Constructor(as per requirements)
-
-		*/
-	};
-	~MySet()
-	{
-		//deleting all objects on memory stack
-		//if only one Object pHead doesnt have pNext reference
+    void print(){
 
 
 
-	};
+        int start=0;
+        int index= this->getIndex();
 
-	bool isEmpty()
-	{
-		return (pHead == nullptr && pTail == nullptr);
-	}
+        while(start<index){
 
-	int getSize()
-	{
-		return this->size;
-	}
+            T valueAtHead=this->getHead()->getData();
 
+            Item<T>* temp= this->getHead()->getNext();
 
-
-	void increaseIndex() {
-		this->index++;
-
-	}
-	void decreaseIndex() {
-		this->index--;
-	}
-
-	/*
-	*
-	* an attempt to sort by Node data.
-	void sort() {
-		/
-
-		int ind = index - 1;
-		for (int i = 0; i < ind; i++)
-		{
-
-			Item<T>* min = pHead;
-			for (int j = i + 1; j < index; j++) {
-				if (this->pHead->getNext()->getData() < this->pHead->getData())
-				{
-					min = pHead -> getNext();
-				}
-				Item<T>* temp = min;
-				pHead->setNext(pHead)  ;
-				pHead = temp;
-
-			}
-		}
-		for (int i = 0; i < index; i++) {
-			T t = getElement(i);
-			cout << t << endl;
-		}
-
-	}
-
-	*/
-	
-	int searchElement( T target)
-	{
-		//linear search
-		for (int i = 0; i < index; i++) {
-			if (target == getElement(i)) {
-				T& t = getElement(i);
-				cout <<t << endl;
-				return 1;
-			}
-			
-			
-		}
-		return -1;
-		
-
-	}
-	
-	bool add(const T& data)
-	{
-		Item<T>* pNew = new  Item<T>(data);
-
-		//list is empty
-		if (this->isEmpty())
-		{
-			//one object for start and end. 
-			//have same index.
-			pHead = pTail = pNew;
-
-
-			pHead->setIndex(this->index);
-			pTail->setIndex(this->index);
-			increaseIndex();
-			return true;
-
-		}
-		//list is not empty
-		else if (this->index == this->size)
-		{
-			return false;
-
-			cout << "array full .Request increase size" << endl;
-			//throw std::out_of_range;
-		}
-		else {
-		int res = searchElement(pNew->getData());
-			if (res !=1) {
-
-
-				pTail->setNext(pNew);
-				//cout << pTail->getNext() << endl;
-
-				pTail = pNew;
-				//cout << pTail << endl;
-				pTail->setIndex(this->index);
-				//increaseIndex();
-				return true;
-			}
-			
-			
+            cout<<valueAtHead<<endl;
+            this->pHead=temp;
 
 
 
-		}
-		return false;
+            start++;
+        }
 
-	}
-	int length() {
-		return this->index;
-	}
+    }
+bool contains(T data){
+    if (this->isEmpty() | ( this->getHead() == nullptr)) {
+        return 0;
+    }
 
-	void remove(int removeAtIndex)
-	{
-		//if no objects 
-		if (this->isEmpty()) {
-			return;
-		}
-		else {
-			//compare the index of objects on the MEM stack with arg index
-			Item<T>* removingItem = pHead;
-			if (removingItem == nullptr) {
-				return;
-			}
+else {
+        int start = 0;
+        int index = this->getIndex();
 
-			//if found we remove , and copy to previous and  shift index
-			else if (removingItem->getIndex() == removeAtIndex)
-			{
-				int tailIndex = pTail->getIndex();
-				//loop till tail, and copy Objects to previous Item/Node.
-				while (removingItem->getIndex() != tailIndex) {
-					//now poiting to address of getNext()
-					removingItem = removingItem->getNext();//new address .new object
-					//they will all keep a reference of next object in order. HOPEFULLY.
-					decreaseIndex();
-					removingItem->setIndex(this->index);
-					tailIndex++;
-				}
-			}
+        while (start < index) {
+            T valueAtHead = this->getHead()->getData();
 
-			//continue to next untill found;
-			else {
-				remove(removingItem->getNext()->getIndex());
-			}
-		}
+            if (valueAtHead == data) {
+                cout << valueAtHead << endl;
+                return 1;
+            } else {
+                Item<T> *temp = this->getHead()->getNext();
 
-	}
+                cout << "valueAtHead" << endl;
+                this->pHead = temp;
 
-	void iterate() {
-		for (int i = 0; i < index; i++) {
-			
-		}
-	}
-	T getElement(int elIndex) {
+            }
 
+            start++;
+        }
+        return 0;
+    }
+    }
+    Item<T>* getTail()
+    {
 
-		//pretty same as removing.only that is returning the Item /Element.
-		if (this->isEmpty()) {
+        return this->pTail;
+    }
+    Item<T>* getHead() {
+        return this->pHead;
+    }
 
-			return 0;
-		}
-		else if (pHead->getIndex() == elIndex) {
-			return pHead->getData();
-		}
-		else {
-			while (pHead->getNext() != nullptr) {
-				Item<T>* temp = pHead->getNext();
-				pHead = temp;
-				getElement(pHead->getNext()->getIndex());
+    void setHead(Item<T>* h){
+        this->pHead=h;
 
-			}
-		}
-	
+    }
+    MySet()
+    {
+        pHead = pTail = nullptr;
 
-	
+        index = 0;
+    };
+    MySet(int growSize)
+    {
+        /*easy way to do it is just */
+        pHead = pTail = nullptr;
+        size += growSize;
+
+        index = 0;
+        /*trivial . im sure its about copying elements of
+        old Array into new Array.
+        Can' t see it doing that in Constructor(as per requirements)
+
+        */
+    };
+    ~MySet()
+    {
+        //deleting all objects on memory stack
+        //if only one Object pHead doesnt have pNext reference
 
 
-	}
 
-	void clear() {
+    };
+
+    bool isEmpty()
+    {
+        return (pHead == nullptr && pTail == nullptr);
+    }
 
 
-	}
-	int  search(T data) {
-		//linear search starting at head
-		Item<T>* searchHead = pHead;
+    int getSize()
+    {
+        return this->size;
+    }
 
-		//pretty same as removing.only that is returning the Item /Element.
-		if (this->isEmpty()) {
-			return 0;
-		}
+int  getIndex(){
+        return this->index;
+    }
 
-		//compare the index of objects on the MEM stack with arg index
+    void increaseIndex() {
+        this->index++;
 
-			//if found we remove , and copy to previous and  shift index
-		else if (searchHead->getData() == data)
-		{
-			return searchHead->getIndex();
-			//if we found Item we return 
-			//if not we continue  recursively
-		}
+    }
+    void decreaseIndex() {
+        this->index--;
+    }
 
-		//continue to next untill found;
-		else {
-			getElement(searchHead->getNext()->getData());
-		}
+    /*
+    *
+    * an attempt to sort by Node data.
+    void sort() {
+        /
 
-	}
+        int ind = index - 1;
+        for (int i = 0; i < ind; i++)
+        {
+
+            Item<T>* min = pHead;
+            for (int j = i + 1; j < index; j++) {
+                if (this->pHead->getNext()->getData() < this->pHead->getData())
+                {
+                    min = pHead -> getNext();
+                }
+                Item<T>* temp = min;
+                pHead->setNext(pHead)  ;
+                pHead = temp;
+
+            }
+        }
+        for (int i = 0; i < index; i++) {
+            T t = getElement(i);
+            cout << t << endl;
+        }
+
+    }
+
+    */
+
+
+
+    bool add(const T& data)
+    {
+        Item<T>* pNew = new  Item<T>(data);
+
+        //list is empty
+        if (this->isEmpty())
+        {
+            //one object for start and end.
+            //have same index.
+            pHead = pTail = pNew;
+
+
+            pHead->setIndex(this->index);
+            pTail->setIndex(this->index);
+            increaseIndex();
+            return true;
+
+        }
+            //list is not empty
+
+        else if (this->index == this->size | (this->contains(data )))
+        {
+            return false;
+
+            cout << "array full .Request increase size" << endl;
+            //throw std::out_of_range;
+        }
+        else {
+    //
+
+
+                pTail->setNext(pNew);
+                //cout << pTail->getNext() << endl;
+
+                pTail = pNew;
+                increaseIndex();
+                //cout << pTail << endl;
+                pTail->setIndex(this->getIndex());
+                //increaseIndex();
+                return true;
+
+
+
+
+
+
+        }
+        return false;
+
+    }
+    int length() {
+        return this->index;
+    }
+
+    void remove(int removeAtIndex) {
+        //if no objects
+
+        //really needs a CHEC
+        if (this->isEmpty() | (this->getHead() == nullptr)) {
+            return;
+        } else {
+            //compare the index of objects on the MEM stack with arg index
+            int start = 0;
+            int index = this->getIndex();
+
+            while (start < index) {
+
+                int indexAtHead = this->getHead()->getIndex();
+                if (indexAtHead == removeAtIndex) {
+                    this->setHead(this->getHead()->getNext());
+
+                } else {
+                    Item<T> *temp = this->getHead()->getNext();
+
+                    cout << indexAtHead << endl;
+                    this->pHead = temp;
+
+                }
+
+
+                start++;
+            }
+        }
+
+    }
+
+
+
+
+                //if found we remove , and copy to previous and  shift index
+
+
+
+
+
+
+
+    void iterate() {
+        for (int i = 0; i < index; i++) {
+
+        }
+    }
+    T getElement(int elIndex) {
+        if (this->isEmpty()) {
+            return 0;
+        } else {
+            //compare the index of objects on the MEM stack with arg index
+            int start = 0;
+            int index = this->getIndex();
+
+            while (start < index) {
+
+                int indexAtHead = this->getHead()->getIndex();
+                if (indexAtHead == elIndex) {
+                    return this->getHead()->getData();
+
+                } else {
+                    Item<T> *temp = this->getHead()->getNext();
+
+
+                    this->setHead(  temp);
+
+                }
+
+
+                start++;
+            }
+        }
+        return 0;
+        }
+
+
+
+
+
+
+
+    void clear() {
+
+
+    }
 
 
 };

@@ -1,4 +1,4 @@
-# Install script for directory: /media/ovi/Development_WX/ADT_CA/ADS_2023_RPT_OI
+# Install script for directory: /media/ovi/Development_WX/ADS_2023_REPEAT_OI/ADS_2023_RPT_OI
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/media/ovi/Development_WX/ADT_CA/ADS_2023_RPT_OI/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/media/ovi/Development_WX/ADS_2023_REPEAT_OI/ADS_2023_RPT_OI/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
