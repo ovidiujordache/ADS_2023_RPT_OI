@@ -9,23 +9,29 @@
 #include "MySetAlloc.h"
 	using namespace std;
 
-int main() {
+	int main() {
 
-	MySetAlloc<int>* set1 = new MySetAlloc<int>();
-	int* a = new int(1);
-	int* b = new int(2);
-	set1->add(*a);
-	set1->add(*b);
-	MySetAlloc<int>* set2 = new MySetAlloc<int>();
-	int* a1 = new int(3);
-	int* b1 = new int(4);
-	set1->add(*a1);
-	set1->add(*b1);
+		MySetAlloc<int>* set1 = new MySetAlloc<int>();
+		int* a = new int(1);
+		int* b = new int(2);
+		set1->add(*a);
+		set1->add(*b);
+		MySetAlloc<int>* set2 = new MySetAlloc<int>();
+		int* a1 = new int(21);
+		int* b1 = new int(22);
+		set2->add(*a1);
+		set2->add(*b1);	set2->add(*b1);	set2->add(*b1);	set2->add(*b1);	set2->add(*b1);	set2->add(*b1);
+		bool tr = set1->contains(1);
+		//cout << tr << endl;
+		/*
 
-	MySetAlloc<int> uni= *set1 | *set2;
-	MySetAlloc<int> inter = *set1 & *set2;
-	
-	//MySetAlloc<int> inters =
+		MySetAlloc<int>* uni = &(*set1 | *set2);
+		int* d =(int*)( uni->getData());
+		uni->sort();
+		int s = uni->getIndex();
+
+	*/
+
 
 
 

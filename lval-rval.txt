@@ -1,0 +1,147 @@
+
+#include <iostream>
+#include "MyClass.h";
+using namespace std;
+void pointers();
+void addressOf();
+
+
+double & myF(int& param);
+void power2 (double& res, double x) ;
+
+double& add (double& x) ;
+double addReturn (double x);
+int factorialRecursion(int n);
+
+int main() {
+
+    pointers();
+
+    double result;
+    double resultAdd;
+    double* resultPtr;
+    resultPtr=&result;
+//    cout<<*resultPtr<<endl;
+    power2(result,10);
+//    printf("%f\n",result);
+//returns a refernce
+    add(result)+=900;
+//    resultAdd=200;
+//    cout<<resultAdd<<endl;
+//
+//    double resultAddReturn=addReturn(34);
+//    double resultAddReturn= addReturn(result);
+    cout<<++result<<endl;
+    //    std::cout << "Pointers.." << std::endl;
+    //    std::cout << "Address of .." << std::endl;
+    int fact;
+    int n =9;
+    fact=factorialRecursion(9);
+    cout<<"factorial ! :"<<fact<<endl;
+    return 0;
+}
+int countM;
+int countLoop;
+int factorialRecursion(int n){
+ if(n==0){
+     return 1;
+ }
+ return n * factorialRecursion(n-1);
+
+
+
+}
+
+void pointers(){
+    /*
+     *
+     *         int myvar=10;//declaration int and initialization
+     *        int * myptr; //here asterix is part of the type , which is I M A POINTER.
+              *myptr = &myvar;  HENCE ITS ILLEGAL.because here ASTERIX IS DEREFERENCING.
+
+
+
+                 int myvar=10;
+                int * myptr;
+                myptr = &myvar;
+     *
+     *
+     * */
+
+    int myvar;
+
+    int * myptr;
+    myptr = &myvar;
+    *myptr=30;
+
+    int abc =myvar;
+    std::cout << myvar<< std::endl;
+    std::cout << myptr << std::endl;
+    //X
+    int num = 5;
+    int *ptr;
+    ptr = &num;
+
+//Y
+    int*  mptr = (int *)malloc(sizeof(int *));//gives and adddress .
+//    /std::cout << mptr<< std::endl;
+    *mptr = 5;
+
+//Z
+    int* myptr1;//defalut value zero. it does point to an address.
+    int addr=12;
+//    myptr1 = &num;
+//    myptr1 =(int*)23;casting is valid. it has an address but no value of 23 is pointing.  // invalid conversion from ‘int’ to ‘int*’
+
+    myptr1=&addr;
+    std::cout << *myptr1<< std::endl;
+    int i = 3;
+    int* ptr_to_i = &i;
+    int** ptr_to_ptr_to_i = &ptr_to_i;
+
+    std::cout << **ptr_to_ptr_to_i << std::endl;
+    int x{ 5 };
+    int& lref{ x }; // l-value reference initialized with l-value x
+    const int& const_lvalue { 4 } ;
+    const int& const_lvalue1 { x } ;
+
+    int&& rref{ 5 }; // r-value reference initialized with r-value 5
+    const int&& const_rvalue {10};//canot modify
+    int&& rref1{ 4 };
+    const int&& rref2{3};
+    //     cannot bind rvalue reference of type 'int&&' to lvalue of type 'int'
+    /*
+     * int x{};
+
+	// l-value references
+	int& ref1{ x }; // A
+	int& ref2{ 5 }; // B WONT COMPILE
+
+	const int& ref3{ x }; // C
+	const int& ref4{ 5 }; // D
+
+	// r-value references
+	int&& ref5{ x }; // E   B WONT COMPILE
+	int&& ref6{ 5 }; // F
+
+	const int&& ref7{ x }; // G   B WONT COMPILE
+	const int&& ref8{ 5 }; // H
+     * */
+}
+
+void addresOf(){
+
+}
+double & myF(int& param){
+
+}
+void power2 (double&  res, double x) {
+    res = x * x;
+}
+
+double& add (double& x) {
+    return ++x;
+}
+double addReturn (double x) {
+    return ++x;
+}
