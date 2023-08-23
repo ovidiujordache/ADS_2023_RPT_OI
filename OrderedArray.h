@@ -126,36 +126,7 @@ public:
     }
 
 
-    /*
-    *
-    * an attempt to sort by Node data.
-    void sort() {
-        /
 
-        int ind = index - 1;
-        for (int i = 0; i < ind; i++)
-        {
-
-            Item<T>* min = pHead;
-            for (int j = i + 1; j < index; j++) {
-                if (this->pHead->getNext()->getData() < this->pHead->getData())
-                {
-                    min = pHead -> getNext();
-                }
-                Item<T>* temp = min;
-                pHead->setNext(pHead)  ;
-                pHead = temp;
-
-            }
-        }
-        for (int i = 0; i < index; i++) {
-            T t = getElement(i);
-            cout << t << endl;
-        }
-
-    }
-
-    */
 
 
 

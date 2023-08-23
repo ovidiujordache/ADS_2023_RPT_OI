@@ -15,6 +15,7 @@ public:
 	Item(T data) {
 		this->data = data;
 		this->pNext = nullptr;
+		index = 0;
 	}
 	~Item() {
 

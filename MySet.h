@@ -38,33 +38,21 @@ private:
 
 public:
 
-    void print(){
 
 
+    /*
+    •	Set | Set: - returns a new set containing all unique elements from each input set.
+•	Set & Set: - Returns a new set containing all elements common to both sets (Intersection)
+  bool operator&&(const MySet& set1, const MySet set2) {
 
-        int start=0;
-        int index= this->getIndex();
-
-        while(start<index){
-
-            T valueAtHead=this->getHead()->getData();
-
-            Item<T>* temp= this->getHead()->getNext();
-
-            cout<<valueAtHead<<endl;
-            this->pHead=temp;
-
-
-
-            start++;
-        }
 
     }
+    */
 
-    T& operator&(T) {
 
-    }
 
+
+  
 bool contains(T data){
     if (this->isEmpty() | ( this->getHead() == nullptr)) {
         return 0;
@@ -83,7 +71,7 @@ else {
             } else {
                 Item<T> *temp = this->getHead()->getNext();
 
-                cout << "valueAtHead" << endl;
+               // cout << "valueAtHead" << endl;
                 this->pHead = temp;
 
             }
@@ -119,11 +107,7 @@ else {
         size += growSize;
 
         index = 0;
-        /*trivial . im sure its about copying elements of
-        old Array into new Array.
-        Can' t see it doing that in Constructor(as per requirements)
-
-        */
+   
     };
     ~MySet()
     {
@@ -287,11 +271,6 @@ int  getIndex(){
 
 
 
-    void iterate() {
-        for (int i = 0; i < index; i++) {
-
-        }
-    }
     T getElement(int elIndex) {
         if (this->isEmpty()) {
             return 0;
@@ -331,6 +310,33 @@ int  getIndex(){
 
 
     }
+
+
+
+    void print() {
+
+
+
+        int start = 0;
+        int index = this->getIndex();
+
+        while (start < index) {
+
+            T valueAtHead = this->getHead()->getData();
+
+            Item<T>* temp = this->getHead()->getNext();
+
+            cout << valueAtHead << endl;
+            this->pHead = temp;
+
+
+
+            start++;
+        }
+
+    }
+
+
 
 
 };

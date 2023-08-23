@@ -132,7 +132,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="MySetAlloc.cpp" />
+    <ClCompile Include="MySetAlloc.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h" />

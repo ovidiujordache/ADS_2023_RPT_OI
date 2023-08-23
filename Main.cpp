@@ -6,18 +6,27 @@
 #include "Circle.h";
 #include "ReadCSV.h";
 #include "MySet.h"
-
+#include "MySetAlloc.h"
 	using namespace std;
 
 int main() {
 
-	OrderedArrayAlloc<int>* oAL = new OrderedArrayAlloc<int>();
-	int* a = new int(5);
-	int* b = new int(6);
-	int* c = new int(67);
-	int* d = new int(58);
-	int* e = new int(9);
-	oAL->push(*a); oAL->push(*b); oAL->push(*c); oAL->push(*d); oAL->push(*e);
+	MySetAlloc<int>* set1 = new MySetAlloc<int>();
+	int* a = new int(1);
+	int* b = new int(2);
+	set1->add(*a);
+	set1->add(*b);
+	MySetAlloc<int>* set2 = new MySetAlloc<int>();
+	int* a1 = new int(3);
+	int* b1 = new int(4);
+	set1->add(*a1);
+	set1->add(*b1);
+
+	MySetAlloc<int> uni= *set1 | *set2;
+	MySetAlloc<int> inter = *set1 & *set2;
+	
+	//MySetAlloc<int> inters =
+
 
 
 }

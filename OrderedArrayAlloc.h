@@ -16,7 +16,7 @@ private:
 
 	int capacity = 200;
 	T* bytesizeData = (T*)calloc(sizeof(T), sizeof(capacity));
-
+	//how many elements.
 	int index;
 
 public:
@@ -47,7 +47,8 @@ public:
 	{
 		//deleting all objects on memory stack
 		//if only one Object pHead doesnt have pNext reference
-
+			//freeing the mem
+	
 
 
 	};
@@ -160,20 +161,31 @@ public:
 	}
 
 	void clear() {
-
-		for (int i = 0; i < index;i++) {
-			bytesizeData[i]=nullptr;//calling destructor
-		};
+/*
+* 
+* //clearing data in the mem block
+		for (int i = 0; i < index; i++) {
+			//fill with zeros
+			bytesizeData[i] = nullptr;
+		}
+		*/
+		//clearing all resources on the heap @runtime.
+		bytesizeData = nullptr;
+		//dealocating the memory dynamically.Calling destructor
+		delete (bytesizeData);
+	
+	
 	}
 
-	void   search(T data) {
-		for (int i = 0; i < index; i++) {
-			if(bytesizeData[i]=data) {
-				return true;
+	int   search(T& data) {
+			this->sort();
+			for (int i =  0; i <index; i++) {
+			if(bytesizeData[i]==data) {
+				return i;
 			}
 
 			};
-		return false;//not found
+		return 0;//not found
 	
 
 	}
