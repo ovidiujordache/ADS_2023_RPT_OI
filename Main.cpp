@@ -20,17 +20,22 @@
 		int* a1 = new int(21);
 		int* b1 = new int(22);
 		set2->add(*a1);
-		set2->add(*b1);	set2->add(*b1);	set2->add(*b1);	set2->add(*b1);	set2->add(*b1);	set2->add(*b1);
+		set2->add(*b1);	set2->add(*b1);	
+		set2->add(*b1);	set2->add(*b1);
+		set2->add(*b1);	set2->add(*b1);
 		bool tr = set1->contains(1);
-		//cout << tr << endl;
-		/*
+	
 
-		MySetAlloc<int>* uni = &(*set1 | *set2);
+		MySetAlloc<int>* uni = &(*set1 + *set2);
 		int* d =(int*)( uni->getData());
 		uni->sort();
-		int s = uni->getIndex();
+		for (int i = 0; i < uni->getSize(); i++) {
+			printf("%i\n", &d[i]);
+		
+		}
+		//int s = uni->getIndex();
 
-	*/
+
 
 
 

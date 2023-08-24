@@ -81,11 +81,11 @@ public:
 			if (bytesizeData[i] == data) {
 				
 				return true;
+			
 			}
-			else {
-				return false;
-			}
+		
 		}
+		return false;
 		
 			
 	}
@@ -166,14 +166,14 @@ public:
 			T temp = bytesizeData[min];
 			bytesizeData[min] = bytesizeData[i];
 			bytesizeData[i] = temp;
-			cout << temp << endl;
+		
 		}
 	}
 	int length() {
 		return this->index;
 	}
 
-	void copyInto(){
+	void copy(){
 		T * copyData = (T*)calloc(sizeof(T), sizeof(capacity));
 			for (int i = 0; i < this->index; i++) {
 			copyData[i] = bytesizeData[i];
@@ -194,7 +194,7 @@ public:
 			this->index--;
 			// no idea.
 			bytesizeData[removeAtIndex] = 0;
-			this->copyInto();
+			this->copy();
 		
 
 
@@ -245,6 +245,40 @@ public:
 
 
 	}
+	MySetAlloc<T>& operator&(const MySetAlloc<T>& set2)const {
+		T* data1 = bytesizeData;//this set
+		T* data2 = nullptr;
+		MySetAlloc<T>set2ptr;
+		set2ptr = static_cast<MySetAlloc<T>>(set2);//arg set
+		//very odd behaviour VS for converting
+		MySetAlloc<T>* set2ptrr = &set2ptr;
+		data2 = set2ptrr->getData();
+		int size1 = this->index;
+		int size2 = set2ptrr->getIndex();
+		int coef = size1 + size2;
+		MySetAlloc<T>*intersectSet = new MySetAlloc<T>();//new union set
+		T* newData = (T*)calloc(sizeof(T), sizeof((this->capacity) * coef));;//data size for new union set
+
+
+		intersectSet->setData(newData);//new data size byte alloc 2 times comparing sets
+
+		//subscript requires array or pointer type
+		T* intersectData = intersectSet->getData();//getting data to fill the mem bllocks;
+
+		for (int i = 0; i < size1; i++) {
+			for (int j = 0; j < size2; j++) {
+				if (data1[i] == data2[j]) {
+					intersectData[i] = data1[i];
+				}
+			}
+			
+	
+		}
+
+		return *intersectSet;
+
+	}
+
 
 	MySetAlloc<T>& operator+(const MySetAlloc<T>& set2)const {
 		T* data1 = bytesizeData;//this set
@@ -257,44 +291,30 @@ public:
 		int size1 = this->index;
 		int size2 = set2ptrr->getIndex();
 		int coef = size1 + size2;
-		MySetAlloc<T>* addedSet = new MySetAlloc<T>();//new union set
+		MySetAlloc<T>* addedSets = new MySetAlloc<T>();//new union set
 		T* newData = (T*)calloc(sizeof(T), sizeof((this->capacity) * coef));;//data size for new union set
-		for (int i = 0; i < coef; i++) {
 
+
+		addedSets->setData(newData);//new data size byte alloc 2 times comparing sets
+
+		//subscript requires array or pointer type
+		T* addedSetsData = addedSets->getData();//getting data to fill the mem bllocks;
+
+		for (int i = 0; i < size1; i++) {
+			addedSetsData[i] = data1[i];
+			printf("1st set %d \n", addedSetsData[i]);
+			
+		}
+		for (int i = 0; i < size2; i++) {
+			addedSetsData[size1+i] = data2[i];
+			
+			printf("second set %d \n", addedSetsData[i]);
 		}
 
-		return addedSet;
+		return *addedSets;
 
 	}
-	MySetAlloc<T>	operator&(const MySetAlloc<T>& set1) {
 
-		T* data1 = bytesizeData;
-		T* data2 =  bytesizeData;
-		T* newData = (T*)calloc(sizeof(T), sizeof(this->capacity));;
-
-		int addingIndex = 0;
-		for (int i = 0; i < this->index-1; i++) {
-			for (int j = 0; j < this->index - 2; j++) {
-				if (data1[i] == data2[j]) {
-					cout << data1[i] << endl;
-					cout << data1[j] << endl;
-					//continue;
-				}
-				else {
-					cout << data1[i] << endl;
-					cout << data1[j] << endl;
-				
-					newData[addingIndex] = data1[i];
-					addingIndex++;
-					newData[addingIndex] = data2[j];
-				}
-			}
-
-		}
-
-		return newData;
-
-	}
 
 	 MySetAlloc<T>&	 operator|(const MySetAlloc<T>& set2)const {
 		 /*
@@ -320,14 +340,24 @@ public:
 		//subscript requires array or pointer type
 		T* uniSetData = uniSet->getData();//getting data to fill the mem bllocks;
 		cout << "get data" << endl;
-		
-		int addingIndex = 0;
+	
+		//using concatenated sets
 
-		for (int i = 0; i < this->index; i++) {
-			for (int j = 0; j < this->index ; j++) {
+
+		for (int i = 0; i <size1; i++) {
+			if (!uniSet->contains(data1[i])) {
+				uniSetData[i] = data1[i];
+				//printf("%s,%i\n","data1::adding:");
+			}
+	
+		}
+		//sets can be different sizes
+		for (int i = size1-1; i < coef; i++) {
+			if (!uniSet->contains(data2[i])) {
+				uniSetData[i]=data2[i];
 			
 			}
-
+		
 		}
 
 		return *uniSet;
